@@ -1,7 +1,11 @@
-const MovieList = () => {
+type MovieListProps = {
+    title: string;
+};
+
+const MovieList = ({title}: MovieListProps) => {
     return (
         <section className="px-6 mt-6">
-            <h2 className="text-xl font-semibold mb-4">Trending Now</h2>
+            <h2 className="text-xl font-semibold mb-4">{title}</h2>
             <div className="flex gap-4 overflow-x-scroll scrollbar-hide">
                 {Array.from({ length: 10 }).map((_, index) => (
                     <div
