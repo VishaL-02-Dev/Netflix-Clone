@@ -16,11 +16,10 @@ const Hero = () => {
                         Unlimited movies, TV shows, and more
                     </h1>
                     <p className="sm:text-sm md:text-xl font-normal mt-8 mb-8 opacity-90 drop-shadow-md">
-                        Starts at $7.99. Cancel anytime.
+                        Watch anywhere. Cancel anytime.
                     </p>
                     <button className="bg-red-600 hover:bg-red-700 border-0 rounded-md text-white px-8 py-4 text-lg font-semibold cursor-pointer inline-flex items-center gap-2 transition-all duration-300 ease-out shadow-lg shadow-red-600/30 min-w-[200px] justify-center hover:-translate-y-0.5 hover:shadow-xl hover:shadow-red-600/50 focus-visible:outline-2 focus-visible:outline-white/80 focus-visible:outline-offset-2 active:translate-y-0 group">
-                        Restart Your Membership
-
+                        Get Started
                     </button>
                 </div>
             </div>
