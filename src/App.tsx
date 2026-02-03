@@ -13,11 +13,12 @@ function App() {
         <Route index element={<Landing />} />
       </Route>
       <Route path="/login" element={<Login />} />
-      <Route path="/browse" element={
+      <Route element={
         <ProtectedRoute>
-          <Home />
+          <MainLayout />
         </ProtectedRoute>
       }>
+        <Route path="browse" element={<Home />} />
       </Route>
 
     </Routes>
