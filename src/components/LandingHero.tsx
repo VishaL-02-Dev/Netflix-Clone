@@ -1,5 +1,5 @@
 import heroBg from '../assets/heroBg.jpg';
-const Hero = () => {
+const LandingHero = () => {
     return (
         <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden w-full bg-gradient-to-br from-black via-gray-900 to-black">
             <img
@@ -26,4 +26,4 @@ const Hero = () => {
         </section>
     );
 }
-export default Hero;
+export default LandingHero;

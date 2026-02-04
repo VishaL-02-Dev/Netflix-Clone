@@ -1,11 +1,12 @@
-import Hero from "../components/Hero";
+import LandingHero from "../components/LandingHero";
 import MovieList from "../components/MovieList";
 
 const Landing = () => {
+    
   return (
     <div className="bg-black text-white min-h-screen">
-      <Hero />
-      <MovieList title="Trending Now" />
+      <LandingHero />
+      <MovieList title="Trending Now" endpoint="/trending/movie/week" />
     </div>
   );
 };

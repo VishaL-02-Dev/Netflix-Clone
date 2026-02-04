@@ -5,13 +5,13 @@ import { getFirestore, collection, addDoc,} from "firebase/firestore";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB_hMcV8zNpCAt_upqb8Hl7iggQ4etsOCQ",
-  authDomain: "netflix-clone-50178.firebaseapp.com",
-  projectId: "netflix-clone-50178",
-  storageBucket: "netflix-clone-50178.firebasestorage.app",
-  messagingSenderId: "1069871996573",
-  appId: "1:1069871996573:web:e02e1bb541a0ec1b37fe74",
-  measurementId: "G-KWDPNG4DJ6",
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_MESG_ID,
+  appId: import.meta.env.VITE_APP_ID,
+  measurementId: import.meta.env.VITE_MEASURE_ID,
 };
 
 const app = initializeApp(firebaseConfig);
