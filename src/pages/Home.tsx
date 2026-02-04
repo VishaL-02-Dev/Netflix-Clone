@@ -1,5 +1,5 @@
 import MovieList from '../components/MovieList';
-import BrowseHero  from '../components/BrowseHEro';
+import BrowseHero  from '../components/BrowseHero';
 
 const Home = () => {
     return (
