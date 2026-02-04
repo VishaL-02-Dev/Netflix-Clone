@@ -1,8 +1,10 @@
 import MovieList from '../components/MovieList';
+import BrowseHero  from '../components/BrowseHEro';
 
 const Home = () => {
     return (
         <div className="bg-black text-white">
+            <BrowseHero />
 
             <MovieList
                 title="Trending Now"
