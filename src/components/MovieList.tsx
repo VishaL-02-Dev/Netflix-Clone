@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { tmdbFetch } from "../api/tmdb";
 import type { Movie } from "../components/movie";
-import TrailerModal from "./TrailerModal";
+import { MovieCard } from "./MovieCard";
+import MovieModal from "./MovieModal";
 
 type MovieListProps = {
     title: string;
@@ -10,7 +11,7 @@ type MovieListProps = {
 
 const MovieList = ({ title, endpoint }: MovieListProps) => {
     const [movies, setMovies] = useState<Movie[]>([]);
-    const [trailerKey, setTrailerKey] = useState<string | null>(null);
+    const [selectedMovie, setSelectedMovie] = useState<any | null>(null);
 
     useEffect(() => {
         const fetchMovies = async () => {
@@ -20,17 +21,24 @@ const MovieList = ({ title, endpoint }: MovieListProps) => {
         fetchMovies();
     }, [endpoint]);
 
-    const handleMovieClick = async (movieId: number) => {
-        const data = await tmdbFetch(`/movie/${movieId}/videos`);
-        const trailer = data.results.find(
+    const handleMovieClick = async (movie: any) => {
+       
+        const videoData = await tmdbFetch(`/movie/${movie.id}/videos`);
+        const trailer = videoData.results.find(
             (vid: any) => vid.type === "Trailer" && vid.site === "YouTube"
         );
 
-        if (trailer) {
-            setTrailerKey(trailer.key);
-        } else {
-            alert("Trailer not available");
-        }
+        const trailerUrl = trailer
+            ? `https://www.youtube.com/embed/${trailer.key}`
+            : "";
+
+        setSelectedMovie({
+            id: movie.id,
+            title: movie.title || movie.name,
+            overview: movie.overview,
+            poster: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
+            trailer: trailerUrl,
+        });
     };
 
     return (
@@ -40,25 +48,20 @@ const MovieList = ({ title, endpoint }: MovieListProps) => {
 
                 <div className="flex gap-4 overflow-x-scroll scrollbar-hide">
                     {movies.map((movie) => (
-                        <div
+                        <MovieCard
                             key={movie.id}
-                            onClick={() => handleMovieClick(movie.id)}
-                            className="min-w-[160px] cursor-pointer transition-transform duration-300 hover:scale-110"
-                        >
-                            <img
-                                src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-                                alt={movie.title || movie.name}
-                                className="rounded-md"
-                            />
-                        </div>
+                            movie={movie}
+                            onClick={handleMovieClick}
+                        />
                     ))}
+
                 </div>
             </section>
 
-            {trailerKey && (
-                <TrailerModal
-                    videoKey={trailerKey}
-                    onClose={() => setTrailerKey(null)}
+            {selectedMovie && (
+                <MovieModal
+                    movie={selectedMovie}
+                    onClose={() => setSelectedMovie(null)}
                 />
             )}
         </>

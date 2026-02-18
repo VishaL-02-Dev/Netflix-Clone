@@ -6,13 +6,12 @@ type TrailerModalProps = {
 const TrailerModal = ({ videoKey, onClose }: TrailerModalProps) => {
     return (
         <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center">
-            {/* Close area */}
+           
             <div
                 className="absolute inset-0"
                 onClick={onClose}
             />
 
-            {/* Modal */}
             <div className="relative z-10 w-full max-w-4xl aspect-video bg-black">
                 <button
                     onClick={onClose}

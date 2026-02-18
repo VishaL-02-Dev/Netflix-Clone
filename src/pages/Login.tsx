@@ -19,6 +19,7 @@ const Login = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
@@ -64,14 +65,25 @@ const Login = () => {
                         className="w-full p-3 rounded bg-[#333] text-white outline-none focus:ring-2 focus:ring-red-600"
                     />
 
-                    <input
-                        type="password"
-                        placeholder="Password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                        className="w-full p-3 rounded bg-[#333] text-white outline-none focus:ring-2 focus:ring-red-600"
-                    />
+                    <div className="relative">
+                        <input
+                            type={showPassword ? "text" : "password"}
+                            placeholder="Password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                            className="w-full p-3 rounded bg-[#333] text-white outline-none focus:ring-2 focus:ring-red-600"
+                        />
+
+                        <button
+                            type="button"
+                            onClick={() => setShowPassword(!showPassword)}
+                            className="absolute right-3 top-3 text-sm text-gray-300"
+                        >
+                            {showPassword ? "Hide" : "Show"}
+                        </button>
+                    </div>
+
 
                     <button
                         type="submit"

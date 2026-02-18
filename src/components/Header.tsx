@@ -28,7 +28,10 @@ const Header = () => {
 
                 {user && (
                     <nav className="hidden md:flex items-center gap-6">
-                        <span className="text-sm text-white cursor-pointer hover:underline">
+                        <span
+                            onClick={() => navigate("/browse")}
+                            className="text-white cursor-pointer hover:underline"
+                        >
                             Home
                         </span>
                         <span className="text-sm text-white cursor-pointer hover:underline">
@@ -37,6 +40,13 @@ const Header = () => {
                         <span className="text-sm text-white cursor-pointer hover:underline">
                             Movies
                         </span>
+                        <span
+                            onClick={() => navigate("/watchlist")}
+                            className="text-white cursor-pointer hover:underline"
+                        >
+                            Watchlist
+                        </span>
+
                     </nav>
                 )}
 

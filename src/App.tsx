@@ -6,6 +6,7 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Home from './pages/Home';
+import Watchlist from './pages/Watchlist';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         </ProtectedRoute>
       }>
         <Route path="browse" element={<Home />} />
+        <Route path="watchlist" element={<Watchlist />} />
       </Route>
 
     </Routes>
