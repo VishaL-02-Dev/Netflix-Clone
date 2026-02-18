@@ -4,6 +4,7 @@ import MainLayout from './layouts/MainLayout';
 import Landing from './pages/Landing';
 import ProtectedRoute from "./routes/ProtectedRoute";
 import Login from './pages/Login';
+import Signup from './pages/Signup';
 import Home from './pages/Home';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Route index element={<Landing />} />
       </Route>
       <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} /> 
       <Route element={
         <ProtectedRoute>
           <MainLayout />
